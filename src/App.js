@@ -6,7 +6,7 @@ export default function App() {
     <div className="App">
       <h1>Weather App</h1>
       <SearchEngine />
-        <span id="git-hub"> <strong>Open-source code by </strong> <br /><a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github">Deborah Barbosa</a></span> 
+        <footer id="git-hub"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a></footer> 
     </div>
   );
 }
