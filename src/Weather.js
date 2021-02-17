@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from './Date';
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Weather(props) {
+  
+  const [weatherData, setWeatherData] = useState({ ready: false});
 
   function handleResponse(response){
 
     console.log(response.data);
     setWeatherData({
+ready: true,
+date: new Date(response.data.dt * 1000),
 temperature: response.data.main.temp,
 wind: response.data.wind.speed,
 city: response.data.name,
@@ -16,18 +19,16 @@ humidity: response.data.main.humidity,
 description: response.data.weather[0].description,
 
     })
-    
-    setReady(true);
   }
 
-  if (ready){
+  if (weatherData.ready){
  return (
         <div className="App">
        <div className="container">
     <div className="card-group">
       <div className="card">
       <h1 class="city" id="current-city">{weatherData.city}</h1>
-       <h2 id="date">Tue, Feb/16 | 11:01 </h2>
+       <h2 id="date"> <FormattedDate date={weatherData.date} /> </h2>
         <div class="card border-danger mb-3" class="current-weather">
                        <img
                        src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
@@ -49,12 +50,11 @@ description: response.data.weather[0].description,
      </div>
     <footer id="git-hub"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a></footer> 
     </div>
-    
   );
   } else {
-    let city = "Belo Horizonte"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
+  
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
   axios.get(apiUrl).then(handleResponse); 
 
-  return "loading..."}
+  return "wait..."}
 }
