@@ -1,11 +1,11 @@
 import "./index.css";
 import Weather from "./Weather";
 
+
 export default function App() {
 
   return (     
-      <Weather defaultCity="Belo Horizonte" />  
-      
-   );
+        <Weather defaultCity="Belo Horizonte" />
+  );
 
 }
