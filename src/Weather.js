@@ -6,6 +6,7 @@ export default function Weather(props) {
   
 const [weatherData, setWeatherData] = useState({ ready: false});
 const [city, setCity] = useState(props.defaultCity); 
+
 function handleResponse(response)
 {setWeatherData(
   {ready: true,
@@ -13,6 +14,7 @@ date: new Date(response.data.dt * 1000),
 temperature: response.data.main.temp,
 wind: response.data.wind.speed,
 city: response.data.name,
+iconUrl:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
 humidity: response.data.main.humidity,
 description: response.data.weather[0].description})
   }
@@ -50,4 +52,5 @@ setCity(event.target.value);
   );
   } else {
     search();
+    
     return "searching..."}}
