@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./Date";
+import Temperature from "./Temperature";
 
 export default function MainInfo(props){
     return (
@@ -8,7 +9,9 @@ export default function MainInfo(props){
        <h2 id="date"> <FormattedDate date={props.data.date} /> </h2>
         <div class="card border-danger mb-3" class="current-weather">                    
                          <div class="card-header">
-                  <span class="current-temp" id="city-temp"> <img src={props.data.iconUrl} />   {Math.round(props.data.temperature)}</span> <a href="#" id="celsius-link" class="active">°C</a> | <a href="#" id="fahrenheit-link">F°</a>
+                  <span class="current-temp" id="city-temp"> <img src={props.data.iconUrl} /> 
+                  </span>  
+                  <Temperature celsius={props.data.temperature} /> 
                 <br /> <p id ="temperature-description" className="text-capitalize"> {props.data.description}</p></div>
             <div class="card-body text-danger">
               <h5 class="card-title">Real feel: 20<span id="real-feel"></span><span id="metric">°</span></h5>
@@ -16,6 +19,6 @@ export default function MainInfo(props){
                 <i class="fas fa-wind"></i> Wind: {Math.round(props.data.wind)} <span id="speed"></span><span id="wind-unit"> km/h</span></p>
             </div>               
           
+    
     </div>
-    </div>)
-}
+    </div>);}

@@ -3,7 +3,7 @@ import axios from "axios";
 import MainInfo from "./MainInfo";
 
 export default function Weather(props) {
-  
+
 const [weatherData, setWeatherData] = useState({ ready: false});
 const [city, setCity] = useState(props.defaultCity); 
 
@@ -22,6 +22,7 @@ description: response.data.weather[0].description})
   function search(){
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
   axios.get(apiUrl).then(handleResponse); 
+
   }
 
 
