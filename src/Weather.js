@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
 import MainInfo from "./MainInfo";
+import Forecast from "./Forecast";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Weather(props) {
 
 const [weatherData, setWeatherData] = useState({ ready: false});
 const [city, setCity] = useState(props.defaultCity); 
 
-function handleResponse(response)
-{setWeatherData(
+function handleResponse(response) {
+  console.log(response.data)
+  setWeatherData(
   {ready: true,
 date: new Date(response.data.dt * 1000),
 temperature: response.data.main.temp,
 wind: response.data.wind.speed,
 city: response.data.name,
-iconUrl:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+icon: response.data.weather[0].icon,
 humidity: response.data.main.humidity,
+feel: response.data.main.feels_like,
 description: response.data.weather[0].description})
   }
 
@@ -46,9 +50,9 @@ setCity(event.target.value);
               <input onChange={handleNewCity} type="text" autocomplete="off" autofocus="on" id="input-city" placeholder="Enter a city!" />
           </form>
           </div>
+          <Forecast city={weatherData.city} />;
         </div> 
       </div>
-    <footer id="git-hub"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a></footer> 
     </div>
   );
   } else {
