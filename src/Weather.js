@@ -3,6 +3,7 @@ import axios from "axios";
 import MainInfo from "./MainInfo";
 import Forecast from "./Forecast";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./WeatherForecast.css";
 
 export default function Weather(props) {
 
@@ -50,7 +51,7 @@ setCity(event.target.value);
               <input onChange={handleNewCity} type="text" autocomplete="off" autofocus="on" id="input-city" placeholder="Enter a city!" />
           </form>
           </div>
-          <Forecast city={weatherData.city} />;
+          <Forecast city={weatherData.city} />
         </div> 
       </div>
     </div>

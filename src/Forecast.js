@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import axios from "axios";
 import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecast.css";
+
 
 
 export default function Forecast(props){
@@ -15,51 +17,36 @@ function handleForecastResponse(response){
 }
 
 if (loaded && props.city === forecast.city.name) {
-    return (<div className="col future">
+    return (<div className="col future" className="Forecast">
                 <table className="table">
           <tbody>
            <tr>
-             <th scope="row three-hours">
-                <p > {new Date(forecast.list[1].dt * 1000).getHours()}:00 </p>
-              </th>
-              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[1].weather[0].icon} />
-              </td> 
-           </tr>
+           <span> <strong>{new Date(forecast.list[1].dt * 1000).getHours()}:00 </strong> </span><br />
+        <p>  <Temperature celsius={Math.round(forecast.list[1].main.temp)} /> </p>
+         <WeatherIcon code={forecast.list[1].weather[0].icon} />
+       </tr>
           <tr>
-             <th scope="row six-hours">
-                <p > {new Date(forecast.list[2].dt * 1000).getHours()}:00 </p>
-              </th>
-              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[2].weather[0].icon} />
-              </td> 
+         <span> <strong> {new Date(forecast.list[2].dt * 1000).getHours()}:00</strong> </span>
+        <Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[2].weather[0].icon} />
            </tr>
-                     <tr>
-             <th scope="row nine-hours">
-                <p >{new Date(forecast.list[3].dt * 1000).getHours()}:00  </p>
-              </th>
-              <td><Temperature celsius={Math.round(forecast.list[2].main.temp)} /> <WeatherIcon code={forecast.list[3].weather[0].icon} />
-              </td> 
-           </tr>
-                         <tr>
-             <th scope="row twelve-hours">
-                <p > {new Date(forecast.list[4].dt * 1000).getHours()}:00 </p>
-              </th>
-              <td><Temperature celsius={Math.round(forecast.list[3].main.temp)} /> <WeatherIcon code={forecast.list[4].weather[0].icon} />
-              </td> 
-           </tr>
-                     <tr>
-             <th scope="row fifteen-hours">
-                <p > {new Date(forecast.list[5].dt * 1000).getHours()}:00  </p>
-              </th>
-              <td><Temperature celsius={Math.round(forecast.list[4].main.temp)} /> <WeatherIcon code={forecast.list[5].weather[0].icon} />
-              </td> 
-           </tr>
+         <tr>
+        <span> <strong> {new Date(forecast.list[3].dt * 1000).getHours()}:00 </strong> </span>
+            <Temperature celsius={Math.round(forecast.list[2].main.temp)} /> <WeatherIcon code={forecast.list[3].weather[0].icon} />
+          </tr>
+          <tr>
+             <span> <strong>  {new Date(forecast.list[4].dt * 1000).getHours()}:00 </strong> </span>
+             <Temperature celsius={Math.round(forecast.list[3].main.temp)} /> <WeatherIcon code={forecast.list[4].weather[0].icon} />
+             </tr>
+           <tr>
+         <span> <strong>  {new Date(forecast.list[5].dt * 1000).getHours()}:00  </strong> </span>
+          <Temperature celsius={Math.round(forecast.list[4].main.temp)} /> <WeatherIcon code={forecast.list[5].weather[0].icon} />
+             </tr>
             </tbody>
-            <hr />
-              <span id="git-hub"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a> </span>
+           <span id="git-hub" className="my-info"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a> </span>
             </table>
-            </div>);
+            </div>)
 }
     else {let Url = `http://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
-  axios.get(Url).then(handleForecastResponse); 
-    return null;}
+  axios.get(Url).then(handleForecastResponse)
+    return null}
 }

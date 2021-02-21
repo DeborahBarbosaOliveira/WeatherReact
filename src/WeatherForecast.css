@@ -1,0 +1,79 @@
+.container {
+  font-family: "Noto Sans JP", sans-serif;
+  color: blue;
+}
+
+h2 {
+  color: darkblue;
+  font-size: 40px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+h3 {
+  color: #b71c1c;
+  font-size: 12px;
+  text-align: center;
+}
+
+.date {
+  font-size: 10;
+}
+
+.MainInfo canvas {
+  display: block;
+}
+
+.MainInfo canvas {
+  vertical-align: middle;
+  border-style: none;
+}
+.card-header {
+  text-align: center;
+  font-size: 28px;
+  color: #423144;
+}
+.card-title {
+  font-size: 18px;
+  text-align: center;
+  margin: 2px;
+  color: #d50000;
+}
+.card-text {
+  text-align: center;
+  color: black;
+}
+
+tr {
+  font-size: 14px;
+  text-align: center;
+  color: #423144;
+}
+
+.card {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  flex-direction: column;
+  min-width: max-content;
+  max-width: 250px;
+  position: relative;
+  margin: 0;
+  display: block;
+}
+.table tr {
+  text-align: center;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  padding: 0 0;
+  vertical-align: middle;
+}
+
+.border-danger mb-3 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.my-info {
+  text-align: center;
+}
