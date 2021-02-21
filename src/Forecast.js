@@ -42,7 +42,7 @@ if (loaded && props.city === forecast.city.name) {
           <Temperature celsius={Math.round(forecast.list[4].main.temp)} /> <WeatherIcon code={forecast.list[5].weather[0].icon} />
              </tr>
             </tbody>
-           <span id="git-hub" className="my-info"> <a href="https://github.com/DeborahBarbosaOliveira/SheCodesForecast" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a> </span>
+           <span id="git-hub" className="my-info"> <a href="https://github.com/DeborahBarbosaOliveira/WeatherReact" id="my-github" target="_blank">Open-source code</a> <br /> by <a href="https://www.linkedin.com/in/deborah-barbosa-oliveira/" id="my-linkedin" target="_blank">Deborah barbosa</a> </span>
             </table>
             </div>)
 }
