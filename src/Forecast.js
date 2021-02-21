@@ -22,35 +22,35 @@ if (loaded && props.city === forecast.city.name) {
              <th scope="row three-hours">
                 <p > {new Date(forecast.list[1].dt * 1000).getHours()}:00 </p>
               </th>
-              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[0].weather[0].icon} />
+              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[1].weather[0].icon} />
               </td> 
            </tr>
           <tr>
              <th scope="row six-hours">
                 <p > {new Date(forecast.list[2].dt * 1000).getHours()}:00 </p>
               </th>
-              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="" id="icon-day-two"></img>
+              <td><Temperature celsius={Math.round(forecast.list[1].main.temp)} /> <WeatherIcon code={forecast.list[2].weather[0].icon} />
               </td> 
            </tr>
                      <tr>
              <th scope="row nine-hours">
                 <p >{new Date(forecast.list[3].dt * 1000).getHours()}:00  </p>
               </th>
-              <td><Temperature celsius={Math.round(forecast.list[2].main.temp)} /> <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="" id="icon-day-two"></img>
+              <td><Temperature celsius={Math.round(forecast.list[2].main.temp)} /> <WeatherIcon code={forecast.list[3].weather[0].icon} />
               </td> 
            </tr>
                          <tr>
              <th scope="row twelve-hours">
                 <p > {new Date(forecast.list[4].dt * 1000).getHours()}:00 </p>
               </th>
-              <td><Temperature celsius={Math.round(forecast.list[3].main.temp)} /> <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="" id="icon-day-two"></img>
+              <td><Temperature celsius={Math.round(forecast.list[3].main.temp)} /> <WeatherIcon code={forecast.list[4].weather[0].icon} />
               </td> 
            </tr>
                      <tr>
              <th scope="row fifteen-hours">
                 <p > {new Date(forecast.list[5].dt * 1000).getHours()}:00  </p>
               </th>
-              <td><Temperature celsius={Math.round(forecast.list[4].main.temp)} /> <img src="https://ssl.gstatic.com/onebox/weather/48/sunny.png" alt="" id="icon-day-two"></img>
+              <td><Temperature celsius={Math.round(forecast.list[4].main.temp)} /> <WeatherIcon code={forecast.list[5].weather[0].icon} />
               </td> 
            </tr>
             </tbody>
