@@ -13,5 +13,5 @@ export default function FormattedDate(props){
 
     let date = props.date.getDate();
      
-    return (<div> |{day}, {month}/{date}| <br /> {hours}:{minutes}</div>);
+    return (<div> |{day}, {month}/{date}|  <br /> {hours}:{minutes}</div>);
 }

@@ -46,7 +46,7 @@ if (loaded && props.city === forecast.city.name) {
             </table>
             </div>)
 }
-    else {let Url = `http://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
+    else {let Url = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=8ace475fd8f2a50f825109d1b6a3c226&units=metric`;
   axios.get(Url).then(handleForecastResponse)
     return null}
 }
